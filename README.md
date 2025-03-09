@@ -1,0 +1,2 @@
+# Bucin
+Practice nextjs
