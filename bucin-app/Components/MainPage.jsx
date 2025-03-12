@@ -3,6 +3,9 @@ import { assets } from "@/Assets/assets";
 import Image from "next/image";
 import React, { useRef, useState } from "react";
 import Flower from "./Flower";
+import Balatro from "./Balatro/Balatro";
+import Aurora from "./Aurora/Aurora";
+import ScrollVelocity from "./ScrollVelocity/ScrollVelocity";
 
 const MainPage = () => {
   const [valueCode, setValueCode] = useState("");
@@ -35,7 +38,7 @@ const MainPage = () => {
           onEnded={playAudio} // Restart the audio when it ends
         />
 
-        <div className="w-full flex items-center justify-center">
+        <div className="w-full flex items-center justify-center z-20">
           <div className="w-auto flex items-center justify-between gap-x-[5px]">
             <div className="w-[280px] h-[60px] rounded-full bg-white p-[30px] flex items-center justify-center">
               <input
@@ -64,21 +67,48 @@ const MainPage = () => {
             </div>
           </div>
         </div>
-        <div className="absolute w-full bg-white">asdsdadasd</div>
+        
+        <div className="absolute w-full h-full">
+          <Balatro
+            isRotate={false}
+            mouseInteraction={false}
+            pixelFilter={700}
+          />
+        </div>
       </div>
       <Flower correct={isCorrect} />
       {isCorrect && (
-        <div className="bg-[#020303] w-full">
-            <Image src={assets.y1} alt=""/>
-            <Image src={assets.y2} alt=""/>
-            <Image src={assets.y3} alt=""/>
-            <Image src={assets.y4} alt=""/>
-            <Image src={assets.y5} alt=""/>
-            <Image src={assets.y6} alt=""/>
-            <Image src={assets.y7} alt=""/>
-            <Image src={assets.y8} alt=""/>
-          <div className="text-[200px] font-extrabold text-pink-400"> HAIII</div>
-          <div className="text-[200px] font-extrabold text-pink-600"> HAIII</div>
+
+        <div className="bg-black w-full">
+          
+          <div className="w-full h-full flex justify-center items-center overflow-hidden">
+            <ScrollVelocity
+              texts={['I LOVE YOU', 'SO MWUACH']} 
+              velocity={100} 
+              className=" text-white"
+              numCopies={20}
+            />
+            {/* <div className="grid grid-cols-2 gap-[20px]">
+              <Image src={assets.y1} alt="" className="w-[200px] h-[200px]" />
+              <Image src={assets.y2} alt="" className="w-[200px] h-[200px]" />
+              <Image src={assets.y3} alt="" className="w-[200px] h-[200px]" />
+              <Image src={assets.y4} alt="" className="w-[200px] h-[200px]" />
+              <Image src={assets.y5} alt="" className="w-[200px] h-[200px]" />
+              <Image src={assets.y6} alt="" className="w-[200px] h-[200px]" />
+              <Image src={assets.y7} alt="" className="w-[200px] h-[200px]" />
+              <Image src={assets.y8} alt="" className="w-[200px] h-[200px]" />
+            </div> */}
+          </div>
+          <div className="w-full h-full rotate-180">
+            <Aurora
+              colorStops={["#D76C82", "#B03052", "#D76C82"]}
+              blend={1}
+              amplitude={1.0}
+              speed={0.5}
+            />
+          </div>
+          {/* <div className="text-[200px] font-extrabold text-pink-400"> HAIII</div>
+          <div className="text-[200px] font-extrabold text-pink-600"> HAIII</div> */}
         </div>
       )}
     </div>
