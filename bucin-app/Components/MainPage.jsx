@@ -1,29 +1,37 @@
 "use client"
 import { assets } from '@/Assets/assets'
 import Image from 'next/image'
-import React, { useState } from 'react'
-import AudioPlayer from './AudioPlayer'
+import React, { useRef, useState } from 'react'
 import Flower from './Flower'
+import AudioPlayer from './AudioPlayer'
 
 const MainPage = () => {
   const [valueCode, setValueCode] = useState('');
   const [isCorrect, setIsCorrect] = useState(false); // State to control visibility
-
+  const audioRef = useRef(null);    
+  const playAudio = () => {
+      if (audioRef.current) {
+      audioRef.current.play();
+      }
+  };
   // Function to handle button click
   const handleClick = () => {
+    playAudio()
     if (valueCode.toUpperCase() === "QWERTY") {  // Ensures case-insensitive comparison
         console.log(valueCode);
         setIsCorrect(true); // Trigger disappearance
+        
     } else {
         console.log("Salah ya cantik");
     }
   };
+  
 
   return (
     <div className=''>
        <div id='door' className={`absolute w-full min-h-screen z-30 bg-black flex transition-opacity duration-4000 ${isCorrect ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
             <div className='w-full flex items-center justify-center'>
-                <div className="relative rounded-full bg-white shadow-xl w-72">
+                <div className="relative rounded-full bg-white shadow-xl w-72 h-[69px] flex items-center justify-center ">
                 <input
                     className="input bg-transparent outline-none border-none pl-6 pr-10 py-5 w-full font-sans text-lg font-semibold"
                     placeholder="WRITE THE CODE HERE"
@@ -51,7 +59,9 @@ const MainPage = () => {
         </div>
        <Flower correct={isCorrect} />
        {isCorrect &&(
-        <div className='bg-black text-white'>sadasdasd</div>
+        <div>
+            <AudioPlayer></AudioPlayer>
+            </div>
        )}
     </div>
  
