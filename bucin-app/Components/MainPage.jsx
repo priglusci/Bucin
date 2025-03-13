@@ -8,6 +8,8 @@ import Aurora from "./Aurora/Aurora";
 import ScrollVelocity from "./ScrollVelocity/ScrollVelocity";
 import SplitText from "./SplitText/SplitText";
 import DecryptedText from "./DecryptedText/DecryptedText";
+import './ButtonUIVerse.css'
+import Swal from 'sweetalert2'
 
 const MainPage = () => {
   const [valueCode, setValueCode] = useState("");
@@ -27,6 +29,75 @@ const MainPage = () => {
       playAudio();
     } else {
       console.log("Salah ya cantik");
+    }
+  };
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent page reload
+
+    const formData = new FormData();
+    formData.append("message", "User clicked Yes!");
+
+    try {
+      const response = await fetch("https://formspree.io/f/mwplkjey", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        setStatus("✅ Email sent successfully!");
+        Swal.fire({
+          title: "SAMA!",
+          text: "AKU JUGA YES!",
+          imageUrl: "https://i.pinimg.com/originals/03/64/e8/0364e8c4bb0ff005cb81eb3dec2eea6b.gif",
+          imageWidth: 200,
+          imageHeight: 200,
+          imageAlt: "Custom image",
+          confirmButtonText: "OKE",
+          confirmButtonColor: "#ff5252",
+          allowOutsideClick: true,
+        });
+      } else {
+        setStatus("❌ Failed to send email.");
+      }
+    } catch (error) {
+      setStatus("❌ Error: " + error.message);
+    }
+  };
+    const handleSubmitMau = async (event) => {
+    event.preventDefault(); // Prevent page reload
+
+    const formData = new FormData();
+    formData.append("message", "User clicked Yes!");
+
+    try {
+      const response = await fetch("https://formspree.io/f/mwplkjey", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        setStatus("✅ Email sent successfully!");
+      Swal.fire({
+        title: "SAMA!",
+        text: "AKU JUGA MAU!",
+        imageUrl: "https://media3.giphy.com/media/l4pTdcifPZLpDjL1e/200w.gif?cid=6c09b952zil55ajww2nzepvt9llkbwgseig3kyde9cnsb5t6&ep=v1_gifs_search&rid=200w.gif&ct=g",
+        imageWidth: 200,
+        imageHeight: 200,
+        imageAlt: "Custom image",
+        confirmButtonText: "OKE",
+        confirmButtonColor: "#ff5252",
+        allowOutsideClick: true,
+      });
+      } else {
+        setStatus("❌ Failed to send email.");
+      }
+    } catch (error) {
+      setStatus("❌ Error: " + error.message);
+      
     }
   };
   return (
@@ -70,6 +141,7 @@ const MainPage = () => {
         </div>
         
         <div className="absolute w-full h-full">
+          
           <Balatro
             isRotate={false}
             mouseInteraction={false}
@@ -81,6 +153,7 @@ const MainPage = () => {
       {isCorrect && (
 
         <div className="bg-black w-full flex flex-col gap-y-[20px]">
+          
           <div className="flex justify-center overflow-hidden">
           <Image
             src={assets.y9}
@@ -129,12 +202,10 @@ const MainPage = () => {
             </div> */}
           </div>
           <div className="w-full h-full flex justify-center items-center overflow-hidden">
-            <div className="grid grid-cols-1 md:grid md:grid-cols-2 xl:grid xl:grid-cols-4 gap-[20px]  ">
-              <Image src={assets.y1} alt="" className="w-[200px] h-[200px]" />
+            <div className="grid grid-cols-1 md:grid md:grid-cols-2 xl:grid xl:grid-cols-4 gap-[20px] justify-center justify-self-center">
               <Image src={assets.y3} alt="" className="w-[200px] h-[200px]" />
               <Image src={assets.y4} alt="" className="w-[200px] h-[200px]" />
               <Image src={assets.y5} alt="" className="w-[200px] h-[200px]" />
-              <Image src={assets.y6} alt="" className="w-[200px] h-[200px]" />
               <Image src={assets.y8} alt="" className="w-[200px] h-[200px]" />
             </div>
           </div>
@@ -329,8 +400,47 @@ const MainPage = () => {
             />
 
           </div>
+            <SplitText
+              text="Jadi?"
+              className="text-[50px] font-semibold text-center text-white"
+              delay={100}
+              animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+              animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+              easing="easeOutCubic"
+              threshold={0.2}
+              rootMargin="-50px"
+            />
+            <div className="flex flex-col items-start max-w-[500px]">
+            
+            <DecryptedText
+            text="Kamu mau jadi pacarku nda?"
+            speed={100}
+            maxIterations={20}
+            sequential={false}
+            className=" text-white"
+            parentClassName="all-letters text-white"
+            encryptedClassName="encrypted"
+            animateOn="view"
+            revealDirection="start"
+            />
+            
+
+          </div>
+
           
           </div>
+          <div className="w-full flex flex-col gap-y-[20px]">
+          <div className="w-full flex justify-center items-center gap-x-[30px]">
+            <button className="comic-button" onClick={handleSubmit}>
+              Yes!
+            </button>
+            <button className="comic-button" onClick={handleSubmitMau}>
+              Mau!
+            </button>
+          </div>
+            {status && <p className="text-center text-white italic">{status}</p>}
+          </div>
+          
           <div className="w-full rotate-180">
             <Aurora
               colorStops={["#D76C82", "#B03052", "#D76C82"]}
@@ -339,8 +449,6 @@ const MainPage = () => {
               speed={0.5}
             />
           </div>
-          {/* <div className="text-[200px] font-extrabold text-pink-400"> HAIII</div>
-          <div className="text-[200px] font-extrabold text-pink-600"> HAIII</div> */}
         </div>
       )}
     </div>

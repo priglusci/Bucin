@@ -1,0 +1,29 @@
+/* From Uiverse.io by Gautammsharma */
+.comic-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #ff5252;
+    background-color: #fff;
+    border: 2px solid #ff5252;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px #ff5252;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.comic-button:hover {
+    background-color: #D76C82;
+    color: #fff;
+    border: 2px solid #a03349;
+    box-shadow: 5px 5px 0px #a03349;
+}
+
+.comic-button:active {
+    background-color: #B03052;
+    box-shadow: none;
+    transform: translateY(4px);
+}
