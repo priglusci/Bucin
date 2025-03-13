@@ -1,14 +1,9 @@
-import { Outfit, Ovo } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  weight: ["400","500","600","700"]
-});
-
-const ovo = Ovo({
-  subsets: ["latin"],
-  weight: ["400"]
+  variable: '--font-dm-sans',
 });
 
 export const metadata = {
@@ -19,9 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${outfit.variable} ${ovo.variable} antialiased`}
-      >
+      <body className={`${dmSans.variable} antialiased`}>
         {children}
       </body>
     </html>

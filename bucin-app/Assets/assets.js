@@ -7,6 +7,7 @@ import y5 from "./y5.jpg"
 import y6 from "./y6.jpg"
 import y7 from "./y7.jpg"
 import y8 from "./y8.jpg"
+import y9 from "./y9.png"
 
 
 export const assets = {
@@ -18,5 +19,6 @@ export const assets = {
     y5,
     y6,
     y7,
-    y8
+    y8,
+    y9,
 }
