@@ -209,7 +209,7 @@ const MainPage = () => {
               <Image src={assets.y8} alt="" className="w-[200px] h-[200px]" />
             </div>
           </div>
-           <div className="w-full h-full flex flex-col justify-center items-center overflow-hidden">
+           <div className="w-full h-full flex flex-col justify-center items-center overflow-hidden z-50">
             <SplitText
               text="15 Alasan Aku Mencintaimu"
               className="text-[50px] font-semibold text-center text-white"
@@ -410,7 +410,7 @@ const MainPage = () => {
               threshold={0.2}
               rootMargin="-50px"
             />
-            <div className="flex flex-col items-start max-w-[500px]">
+            <div className="flex flex-col items-start max-w-[500px] z-50">
             
             <DecryptedText
             text="Kamu mau jadi pacarku nda?"
@@ -429,8 +429,8 @@ const MainPage = () => {
 
           
           </div>
-          <div className="w-full flex flex-col gap-y-[20px]">
-          <div className="w-full flex justify-center items-center gap-x-[30px]">
+          <div className="w-full flex flex-col gap-y-[20px] z-50">
+          <div className="w-full flex justify-center items-center gap-x-[30px] z-50">
             <button className="comic-button" onClick={handleSubmit}>
               Yes!
             </button>
@@ -441,7 +441,7 @@ const MainPage = () => {
             {status && <p className="text-center text-white italic">{status}</p>}
           </div>
           
-          <div className="w-full rotate-180">
+          <div className="w-full absolute bottom-[-400px] rotate-180 bg-black z-0">
             <Aurora
               colorStops={["#D76C82", "#B03052", "#D76C82"]}
               blend={1}

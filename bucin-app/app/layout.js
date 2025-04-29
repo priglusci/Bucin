@@ -7,7 +7,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata = {
-  title: "Qurrata A'yun",
+  title: "Bucin Pars",
   description: "by @rezkymndr with ❤️",
 };
 
