@@ -22,13 +22,14 @@ const MainPage = () => {
   };
   // Function to handle button click
   const handleClick = () => {
-    if (valueCode.toUpperCase() === "ILYSMTUC") {
+    if (valueCode.toUpperCase() === "SOBOCANS") {
       // Ensures case-insensitive comparison
       console.log(valueCode);
       setIsCorrect(true); // Trigger disappearance
       playAudio();
     } else {
       console.log("Salah ya cantik");
+      console.log(valueCode)
     }
   };
   const [status, setStatus] = useState("");
@@ -150,7 +151,7 @@ const MainPage = () => {
         </div>
       </div>
       <Flower correct={isCorrect} />
-      {isCorrect && (
+      {/* {isCorrect && (
 
         <div className="bg-black w-full flex flex-col gap-y-[20px]">
           
@@ -189,7 +190,7 @@ const MainPage = () => {
               velocity={100} 
               className=" text-white"
               numCopies={20}
-            />
+            /> */}
             {/* <div className="grid grid-cols-2 gap-[20px]">
               <Image src={assets.y1} alt="" className="w-[200px] h-[200px]" />
               <Image src={assets.y2} alt="" className="w-[200px] h-[200px]" />
@@ -200,7 +201,7 @@ const MainPage = () => {
               <Image src={assets.y7} alt="" className="w-[200px] h-[200px]" />
               <Image src={assets.y8} alt="" className="w-[200px] h-[200px]" />
             </div> */}
-          </div>
+          {/* </div>
           <div className="w-full h-full flex justify-center items-center overflow-hidden">
             <div className="grid grid-cols-1 md:grid md:grid-cols-2 xl:grid xl:grid-cols-4 gap-[20px] justify-center justify-self-center">
               <Image src={assets.y3} alt="" className="w-[200px] h-[200px]" />
@@ -450,7 +451,7 @@ const MainPage = () => {
             />
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

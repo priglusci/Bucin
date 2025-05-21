@@ -28,7 +28,7 @@ const FlowerAnimation = ({ correct }) => {
             rootMargin="-50px"
           />
         )}
-        <p className="text-center">Scroll ke bawah ya..</p>
+        {/* <p className="text-center">Scroll ke bawah ya..</p> */}
       </div>
       <div className="mainFlowers">
         <div className="night"></div>
